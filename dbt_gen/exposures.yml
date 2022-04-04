@@ -1,0 +1,60 @@
+version: 2
+
+exposures:
+
+  - name: ncaa_team
+    type: 'dashboard'
+    owner: 
+        email: kennan@topcoatdata.com
+    depends_on:
+      - ref('team_name_filter')
+      - ref('season_filter')
+      - ref('num_three_points')
+      - ref('num_free_throws')
+      - ref('num_total_loses')
+      - ref('num_total_wins')
+      - ref('bar_wins_by_season')
+      - ref('line_attendance')
+      - ref('team_scoring')
+      - ref('player_ids')
+      - ref('player_loop')
+
+  - name: overview
+    type: 'dashboard'
+    url: https://internal.topcoatdata.app/overview
+    owner: 
+        email: kennan@topcoatdata.com
+    depends_on:
+      - ref('include_internal_toggle')
+      - ref('active_customers')
+      - ref('files_created_line')
+      - ref('viz_types_table')
+      - ref('average_compile_time')
+      - ref('percentile_over_time')
+
+  - name: customer
+    type: 'dashboard'
+    url: https://internal.topcoatdata.app/customer
+    owner: 
+        email: kennan@topcoatdata.com
+    depends_on:
+      - ref('instance_filter')
+      - ref('user_filter')
+      - ref('last_active')
+      - ref('viz_types_table')
+      - ref('average_compile_time')
+      - ref('files_created')
+
+  - name: performance
+    type: 'dashboard'
+    url: https://internal.topcoatdata.app/performance
+    owner: 
+        email: kennan@topcoatdata.com
+    depends_on:
+      - ref('average_compile_time')
+      - ref('histogram')
+      - ref('percentiles')
+      - ref('percentile_over_time')
+      - ref('error_filter')
+      - ref('errors_table')
+

@@ -1,0 +1,72 @@
+
+project:
+    name: My Project
+    #logo:
+        #path: <add logo filename here>
+        #width: 150
+
+modules:
+    - git: https://github.com/topcoat-data/topcoat-public.git
+      revision: main
+
+#connections:
+    # Configure your connection details here then add secret to Admin/Secrets
+
+    #- name: bigquery
+    #  type: bigquery
+    #  dataset: mydataset
+    #  dbt: false
+
+    #- name: postgres
+    #  type: postgres
+    #  host: <host address>
+    #  database: <db name>
+    #  port: 5432
+    #  username: <username>
+    #  schema: <schema>
+    #  dbt: false
+
+    #- name: snowflake
+    #  type: snowflake
+    #  account: <account>.<region>
+    #  username: <username>
+    #  warehouse: <warehouse>
+    #  database: <database>
+    #  schema: <schema>
+    #  dbt: false
+
+layers:
+  personas: [ 'default' ]
+  connection: bigquery
+
+dbt:
+  connection: bigquery
+
+personas:
+    default:
+        - url: overview
+          src: overview.html
+          title: Overview
+          icon_class: fas fa-chart-area
+
+        - url: customer
+          src: customer.html
+          title: Customer
+          icon_class: fa-chart-bar
+
+        - url: performance
+          src: performance.html
+          title: Performance
+          icon_class: fa-server
+
+        - url: testt
+          src: testt.html
+          title: Test
+          icon_class: fa-server
+
+develop:
+  defaults:
+    filters:
+      #instance: 'masterworks'
+      season: '2015'
+      year: '2020'

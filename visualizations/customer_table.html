@@ -1,0 +1,68 @@
+ <div class="p-10 h-98">
+    <div class="font-bold text-lg">{{ metadata.title }}</div>
+        <a-divider class="my-5 h-1" />
+            <div :style="{ height: height- 108 + 'px', overflowY: 'scroll' }">
+                <div class="overflow-y-scroll h-98">
+                    <table class="table-fixed w-full border-collapse border border-secondaryBorderColor">
+                      <thead>
+                        <tr>
+                            <th class="w-1/5 border-collapse border border-secondaryBorderColor pl-2"> User ID </th>
+                            <th class="border-collapse border border-secondaryBorderColor pl-2 "> Instance Name </th>
+                            <th class="border-collapse border border-secondaryBorderColor pl-2"> One Layer </th>
+                            <th class="border-collapse border border-secondaryBorderColor pl-2"> Multiple Layers </th>
+                            <th class="border-collapse border border-secondaryBorderColor pl-2"> One Page </th>
+                            <th class="border-collapse border border-secondaryBorderColor pl-2"> Multiple Pages </th>
+                            <th class="border-collapse border border-secondaryBorderColor pl-2"> Filter on a Page </th>
+                            <th class="border-collapse border border-secondaryBorderColor pl-2"> Filter on a Layer </th>
+                            <th class="border-collapse border border-secondaryBorderColor pl-2"> Ref Used </th>
+                            
+                        </tr>
+                      </thead>
+                      <tbody class="text-center">
+                        <tr v-for="row in rows" >
+                          <td class="border-collapse border border-secondaryBorderColor text-left pl-2" >{{ row.user_id.value }}</td>
+                          <td class="border-collapse border border-secondaryBorderColor text-left pl-2" >{{ row.instance_name.value }}</td>
+
+                          <td v-if="row.one_layer.value == true" class="border-collapse border border-secondaryBorderColor" style="background-color:#66cc99">
+                            {{ row.one_layer.value }}</td>
+                          <td v-else class="border-collapse border border-secondaryBorderColor" style="background-color:#ede4d8">
+                            {{ row.one_layer.value }}</td>
+
+                          <td v-if="row.multiple_layers.value == true" class="border-collapse border border-secondaryBorderColor" style="background-color:#66cc99">
+                            {{ row.multiple_layers.value }}</td>
+                          <td v-else class="border-collapse border border-secondaryBorderColor" style="background-color:#ede4d8">
+                            {{ row.multiple_layers.value }}</td>
+    
+                          <td v-if="row.one_page.value == true" class="border-collapse border border-secondaryBorderColor" style="background-color:#66cc99">
+                            {{ row.one_page.value }}</td>
+                          <td v-else class="border-collapse border border-secondaryBorderColor" style="background-color:#ede4d8">
+                            {{ row.one_page.value }}</td>
+
+                          <td v-if="row.multiple_pages.value == true" class="border-collapse border border-secondaryBorderColor" style="background-color:#66cc99">
+                            {{ row.multiple_pages.value }}</td>
+                          <td v-else class="border-collapse border border-secondaryBorderColor" style="background-color:#ede4d8">
+                            {{ row.multiple_pages.value }}</td>
+                            
+                          <td v-if="row.filter_on_page.value == true" class="border-collapse border border-secondaryBorderColor" style="background-color:#66cc99">
+                            {{ row.filter_on_page.value }}</td>
+                          <td v-else class="border-collapse border border-secondaryBorderColor" style="background-color:#ede4d8">
+                            {{ row.filter_on_page.value }}</td>
+                          
+                          <td v-if="row.filter_on_layer.value == true" class="border-collapse border border-secondaryBorderColor" style="background-color:#66cc99">
+                            {{ row.filter_on_layer.value }}</td>
+                          <td v-else class="border-collapse border border-secondaryBorderColor" style="background-color:#ede4d8">
+                            {{ row.filter_on_layer.value }}</td>
+                          
+                          <td v-if="row.ref_used.value == true" class="border-collapse border border-secondaryBorderColor" style="background-color:#66cc99">
+                            {{ row.ref_used.value }}</td>
+                          <td v-else class="border-collapse border border-secondaryBorderColor" style="background-color:#ede4d8">
+                            {{ row.ref_used.value }}</td>
+
+                          
+                        </tr>
+                      </tbody>
+              </table>
+        </div>
+       </div>
+    <a-divider class="mt-5 mb-0 h-1" />
+</div>

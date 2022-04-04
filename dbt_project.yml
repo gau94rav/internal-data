@@ -1,0 +1,10 @@
+config-version: 2
+
+name: my_project
+version: '1.0.0'
+
+model-paths: [ "dbt_gen" ]
+source-paths: [ "dbt_gen" ]
+
+models:
+    materialized: ephemeral

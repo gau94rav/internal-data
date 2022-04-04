@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta http-equiv="refresh" content="{{ getTimeoutSecondsMeta }}">
+    <title>{{ page.title }}</title>
+
+    <script src="https://kit.fontawesome.com/99fb58b84d.js" crossorigin="anonymous"></script>
+    <script src="{{ get_core_url }}"></script>
+    <link href="{{ get_tailwind_url }}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+    {% if project.favicon_url %}<link rel="shortcut icon" href="{{ project.favicon_url }}"/>{% endif %}
+    
+</head>
+<body>
+
+{{ page_contents | safe }}
+
+</body>
+</html>

@@ -1,0 +1,112 @@
+{{ config(
+        vars = {
+            "line_colors": [ "#66cc99","#0c65c4","#3e136f","#8dbcd1","#db802e"],
+            "bar_colors": [ "#0c65c4","#8dbcd1","#db802e","#66cc99","#3e136f"],
+            "fill_colors": [ "rgba(102, 204, 153,0.7)", "rgba(12, 101, 196,0.6)", "rgba(62, 19, 111,0.7)",
+            "rgba(141, 187, 209,0.7)", "rgba(219, 127, 46,0.7)" ],
+            "series_colors": [ "#66cc99","#3e136f","#0c65c4","#8dbcd1","#db802e"],
+            "map_scale": [ "#8dbcd1", "#0c65c4" ],
+            "font_family": "Open Sans",
+            "font_color": "#233141",
+            "font_size": 12,
+            "hover_label_bg": "rgba(232,230,230,0.7)",
+            "tickfont_family": "Open Sans",
+            "tickfont_color": "#233141",
+            "tickfont_size": 11
+        }
+   )
+}}
+
+<div id="customerTheme" class="bg-pageBackgroundColor">
+    <CustomerThemeHeader></CustomerThemeHeader>
+    <div class="overflow-hidden px-10 mx-auto">
+        <CacheControls
+            iconClass='fa fa-redo transform -rotate-45'
+            position='float-right relative my-5'
+            textColor='text-primaryFontColor'
+            buttonColors='text-secondaryFontColor bg-primaryButtonColor'
+            minimal />
+    </div>
+    <div class="pr-10 pl-10 mx-auto secondary-fonts">
+        <div class="bg-pageSectionColor p-4 rounded">
+            <div class="flex flex-wrap md:flex-row flex-col gap-4 secondary-fonts">
+                <slot name="filters"></slot>
+            </div>
+        </div>
+
+        <div class="mt-5 secondary-fonts">
+            <!-- <div class="grid md:grid-cols-1 lg:grid-cols-3 py-3 gap-4">
+                <slot name='stats'></slot>
+            </div> -->
+
+            <div class="grid md:grid-cols-1 lg:grid-cols-2 gap-4 mt-5 secondary-fonts pb-5">
+                <slot></slot>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+:root {
+    --primary-color: #f8fafc;
+    --primary-highlight-color: #eff6ff;
+    --primary-border-color: #d1d5db;
+    --primary-font-color: var(--grayscale-three-color);
+
+    --secondary-color: #3e136f;
+    --secondary-highlight-color: rgba(255, 255, 255, 0.24);
+    --secondary-border-color: #ffffff;
+    --secondary-font-color: #f8fafc;
+
+    --grayscale-one-color: #F3F4F6;
+    --grayscale-two-color: #4B5563;
+    --grayscale-three-color: #1f2937;
+    --grayscale-hover-color: var(--grayscale-three-color);
+
+    --filter-background-color: var(--page-section-color);
+    --filter-menu-color: var(--page-section-color);
+    --filter-highlight-color: var(--primary-highlight-color);
+    --filter-font-highlight-color: #00b8d4;
+    --filter-font-color: var(--grayscale-three-color);
+    --filter-border-color: var(--primary-border-color);
+
+    --page-section-color: #ffffff;
+    --page-background-color: #f8fafc;
+
+    --primary-button-color: #66cc99;
+    --secondary-button-color: transparent;
+
+    --tile-border-color: transparent;
+    --tile-background-color: var(--page-section-color);
+}
+
+/* Fonts */
+.primary-fonts {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.secondary-fonts {
+    font-family: 'Nunito', sans-serif;
+}
+/* Fonts */
+
+.primaryFilterRadius {
+    @apply rounded;
+}
+
+.secondaryFilterRadius {
+    @apply rounded-3xl;
+}
+
+body {
+    @apply bg-pageBackgroundColor;
+}
+
+.tileElement {
+    @apply border-tileBorderColor bg-tileBackgroundColor rounded;
+}
+
+</style>

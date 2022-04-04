@@ -1,0 +1,118 @@
+ <div class="p-10 h-98">
+    <div class="font-bold text-lg">{{ metadata.title }}</div>
+        <a-divider class="my-5 h-1" />
+            <div :style="{ height: height- 108 + 'px', overflowY: 'scroll' }">
+                <div class="overflow-y-scroll h-98">
+                    <table class="table-fixed w-full border-collapse border border-secondaryBorderColor">
+                      <thead>
+                        <tr>
+                            <th class="w-1/8 border-collapse border border-secondaryBorderColor pl-2"> Date </th>
+                            <th class="border-collapse border border-secondaryBorderColor pl-2 "> 0 Seconds </th>
+                            <th class="border-collapse border border-secondaryBorderColor pl-2"> 1 to 3 Seconds </th>
+                            <th class="border-collapse border border-secondaryBorderColor pl-2"> 4 to 7 Seconds </th>
+                            <th class="border-collapse border border-secondaryBorderColor pl-2"> 8 to 11 Seconds </th>
+                            <th class="border-collapse border border-secondaryBorderColor pl-2"> 12 to 15 Seconds </th>
+                            <th class="border-collapse border border-secondaryBorderColor pl-2"> 16 to 19 Seconds </th>
+                            <th class="border-collapse border border-secondaryBorderColor pl-2"> 20 to 52 Seconds </th>
+                            <th class="border-collapse border border-secondaryBorderColor pl-2"> 53 to 139 Seconds </th>
+                        </tr>
+                      </thead>
+                      <tbody class="text-center">
+                        <tr v-for="row in rows" >
+                          <td class="border-collapse border border-secondaryBorderColor text-left pl-2" >{{ new Date(row.day.value).toDateString() }}</td>
+    
+                          <td v-if="row.total_m_0.value == 0" class="border-collapse border border-secondaryBorderColor" style="background-color:#dceee4">
+                            {{ row.total_m_0.value }}</td>
+                          <td v-else-if="row.total_m_0.value < 10" class="border-collapse border border-secondaryBorderColor" style="background-color:#afd7c1">
+                            {{ row.total_m_0.value }}</td>
+                          <td v-else-if="row.total_m_0.value < 30" class="border-collapse border border-secondaryBorderColor" style="background-color:#83c09d">
+                            {{ row.total_m_0.value }}</td>
+                          <td v-else-if="row.total_m_0.value < 50" class="border-collapse border border-secondaryBorderColor" style="background-color:#56a97a">
+                            {{ row.total_m_0.value }}</td>
+                          <td v-else class="border-collapse border border-secondaryBorderColor" style="background-color:#1b9257">
+                            {{ row.total_m_0.value }}</td>
+
+                          <td v-if="row.total_p_3.value == 0" class="border-collapse border border-secondaryBorderColor" style="background-color:#dceee4">
+                            {{ row.total_p_3.value }}</td>
+                          <td v-else-if="row.total_p_3.value < 10" class="border-collapse border border-secondaryBorderColor" style="background-color:#afd7c1">
+                            {{ row.total_p_3.value }}</td>
+                          <td v-else-if="row.total_p_3.value < 30" class="border-collapse border border-secondaryBorderColor" style="background-color:#83c09d">
+                            {{ row.total_p_3.value }}</td>
+                          <td v-else-if="row.total_p_3.value < 50" class="border-collapse border border-secondaryBorderColor" style="background-color:#56a97a">
+                            {{ row.total_p_3.value }}</td>
+                          <td v-else class="border-collapse border border-secondaryBorderColor" style="background-color:#1b9257">
+                            {{ row.total_p_3.value }}</td>
+                          
+                          <td v-if="row.total_p_7.value == 0" class="border-collapse border border-secondaryBorderColor" style="background-color:#dceee4">
+                            {{ row.total_p_7.value }}</td>
+                          <td v-else-if="row.total_p_7.value < 10" class="border-collapse border border-secondaryBorderColor" style="background-color:#afd7c1">
+                            {{ row.total_p_7.value }}</td>
+                          <td v-else-if="row.total_p_7.value < 30" class="border-collapse border border-secondaryBorderColor" style="background-color:#83c09d">
+                            {{ row.total_p_7.value }}</td>
+                          <td v-else-if="row.total_p_7.value < 50" class="border-collapse border border-secondaryBorderColor" style="background-color:#56a97a">
+                            {{ row.total_p_7.value }}</td>
+                          <td v-else class="border-collapse border border-secondaryBorderColor" style="background-color:#1b9257">
+                            {{ row.total_p_7.value }}</td>
+
+                          <td v-if="row.total_p_11.value == 0" class="border-collapse border border-secondaryBorderColor" style="background-color:#dceee4">
+                            {{ row.total_p_11.value }}</td>
+                          <td v-else-if="row.total_p_11.value < 10" class="border-collapse border border-secondaryBorderColor" style="background-color:#afd7c1">
+                            {{ row.total_p_11.value }}</td>
+                          <td v-else-if="row.total_p_11.value < 30" class="border-collapse border border-secondaryBorderColor" style="background-color:#83c09d">
+                            {{ row.total_p_11.value }}</td>
+                          <td v-else-if="row.total_p_11.value < 50" class="border-collapse border border-secondaryBorderColor" style="background-color:#56a97a">
+                            {{ row.total_p_11.value }}</td>
+                          <td v-else class="border-collapse border border-secondaryBorderColor" style="background-color:#1b9257">
+                            {{ row.total_p_11.value }}</td>
+
+                          <td v-if="row.total_p_15.value == 0" class="border-collapse border border-secondaryBorderColor" style="background-color:#dceee4">
+                            {{ row.total_p_15.value }}</td>
+                          <td v-else-if="row.total_p_15.value < 10" class="border-collapse border border-secondaryBorderColor" style="background-color:#afd7c1">
+                            {{ row.total_p_15.value }}</td>
+                          <td v-else-if="row.total_p_15.value < 30" class="border-collapse border border-secondaryBorderColor" style="background-color:#83c09d">
+                            {{ row.total_p_15.value }}</td>
+                          <td v-else-if="row.total_p_15.value < 50" class="border-collapse border border-secondaryBorderColor" style="background-color:#56a97a">
+                            {{ row.total_p_15.value }}</td>
+                          <td v-else class="border-collapse border border-secondaryBorderColor" style="background-color:#1b9257">
+                            {{ row.total_p_15.value }}</td>
+
+                          <td v-if="row.total_m_19.value == 0" class="border-collapse border border-secondaryBorderColor" style="background-color:#dceee4">
+                            {{ row.total_m_19.value }}</td>
+                          <td v-else-if="row.total_m_19.value < 10" class="border-collapse border border-secondaryBorderColor" style="background-color:#afd7c1">
+                            {{ row.total_m_19.value }}</td>
+                          <td v-else-if="row.total_m_19.value < 30" class="border-collapse border border-secondaryBorderColor" style="background-color:#83c09d">
+                            {{ row.total_m_19.value }}</td>
+                          <td v-else-if="row.total_m_19.value < 50" class="border-collapse border border-secondaryBorderColor" style="background-color:#56a97a">
+                            {{ row.total_m_19.value }}</td>
+                          <td v-else class="border-collapse border border-secondaryBorderColor" style="background-color:#1b9257">
+                            {{ row.total_m_19.value }}</td>
+
+                          <td v-if="row.total_p_52.value == 0" class="border-collapse border border-secondaryBorderColor" style="background-color:#dceee4">
+                            {{ row.total_p_52.value }}</td>
+                          <td v-else-if="row.total_p_52.value < 10" class="border-collapse border border-secondaryBorderColor" style="background-color:#afd7c1">
+                            {{ row.total_p_52.value }}</td>
+                          <td v-else-if="row.total_p_52.value < 30" class="border-collapse border border-secondaryBorderColor" style="background-color:#83c09d">
+                            {{ row.total_p_52.value }}</td>
+                          <td v-else-if="row.total_p_52.value < 50" class="border-collapse border border-secondaryBorderColor" style="background-color:#56a97a">
+                            {{ row.total_p_52.value }}</td>
+                          <td v-else class="border-collapse border border-secondaryBorderColor" style="background-color:#1b9257">
+                            {{ row.total_p_52.value }}</td>
+
+                          <td v-if="row.total_m_139.value == 0" class="border-collapse border border-secondaryBorderColor" style="background-color:#dceee4">
+                            {{ row.total_m_139.value }}</td>
+                          <td v-else-if="row.total_m_139.value < 10" class="border-collapse border border-secondaryBorderColor" style="background-color:#afd7c1">
+                            {{ row.total_m_139.value }}</td>
+                          <td v-else-if="row.total_m_139.value < 30" class="border-collapse border border-secondaryBorderColor" style="background-color:#83c09d">
+                            {{ row.total_m_139.value }}</td>
+                          <td v-else-if="row.total_m_139.value < 50" class="border-collapse border border-secondaryBorderColor" style="background-color:#56a97a">
+                            {{ row.total_m_139.value }}</td>
+                          <td v-else class="border-collapse border border-secondaryBorderColor" style="background-color:#1b9257">
+                            {{ row.total_m_139.value }}</td>
+
+                        </tr>
+                      </tbody>
+              </table>
+        </div>
+       </div>
+    <a-divider class="mt-5 mb-0 h-1" />
+</div>
