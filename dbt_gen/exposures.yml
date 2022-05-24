@@ -2,59 +2,413 @@ version: 2
 
 exposures:
 
-  - name: ncaa_team
+  - name: active_customers2_auto_page
     type: 'dashboard'
+    url: https://localhost//layers/active_customers2
     owner: 
-        email: kennan@topcoatdata.com
+        email: generated@topcoatdata.com
     depends_on:
-      - ref('team_name_filter')
-      - ref('season_filter')
-      - ref('num_three_points')
-      - ref('num_free_throws')
-      - ref('num_total_loses')
-      - ref('num_total_wins')
-      - ref('bar_wins_by_season')
-      - ref('line_attendance')
-      - ref('team_scoring')
-      - ref('player_ids')
-      - ref('player_loop')
-
-  - name: overview
-    type: 'dashboard'
-    url: https://internal.topcoatdata.app/overview
-    owner: 
-        email: kennan@topcoatdata.com
-    depends_on:
+      - ref('active_customers2')
+      - ref('date_filter')
       - ref('include_internal_toggle')
-      - ref('active_customers')
-      - ref('files_created_line')
-      - ref('viz_types_table')
+      - ref('instance_filter')
+      - ref('user_base')
+      - ref('user_filter')
+
+  - name: active_instance_auto_page
+    type: 'dashboard'
+    url: https://localhost//layers/active_instance
+    owner: 
+        email: generated@topcoatdata.com
+    depends_on:
+      - ref('active_instance')
+      - ref('date_filter')
+      - ref('include_internal_toggle')
+      - ref('instance_filter')
+      - ref('user_base')
+      - ref('user_filter')
+
+  - name: average_compile_time_auto_page
+    type: 'dashboard'
+    url: https://localhost//layers/average_compile_time
+    owner: 
+        email: generated@topcoatdata.com
+    depends_on:
       - ref('average_compile_time')
-      - ref('percentile_over_time')
+      - ref('compile_base')
+      - ref('date_filter')
+      - ref('include_internal_toggle')
+      - ref('instance_filter')
+      - ref('user_filter')
+
+  - name: compile_base_auto_page
+    type: 'dashboard'
+    url: https://localhost//layers/compile_base
+    owner: 
+        email: generated@topcoatdata.com
+    depends_on:
+      - ref('compile_base')
+      - ref('date_filter')
+      - ref('include_internal_toggle')
+      - ref('instance_filter')
+      - ref('user_filter')
 
   - name: customer
     type: 'dashboard'
-    url: https://internal.topcoatdata.app/customer
+    url: https://localhost/customer
     owner: 
-        email: kennan@topcoatdata.com
+        email: generated@topcoatdata.com
     depends_on:
+      - ref('compile_base')
+      - ref('date_filter')
+      - ref('files_created')
+      - ref('instance_filter')
+      - ref('last_active')
+      - ref('saves_by_day')
+      - ref('user_filter')
+      - ref('viz_types_table')
+
+  - name: customer_health_auto_page
+    type: 'dashboard'
+    url: https://localhost//layers/customer_health
+    owner: 
+        email: generated@topcoatdata.com
+    depends_on:
+      - ref('customer_health')
+
+  - name: date_filter_auto_page
+    type: 'dashboard'
+    url: https://localhost//layers/date_filter
+    owner: 
+        email: generated@topcoatdata.com
+    depends_on:
+      - ref('date_filter')
+
+  - name: devices_used_auto_page
+    type: 'dashboard'
+    url: https://localhost//layers/devices_used
+    owner: 
+        email: generated@topcoatdata.com
+    depends_on:
+      - ref('devices_used')
+      - ref('include_internal_toggle')
       - ref('instance_filter')
       - ref('user_filter')
-      - ref('last_active')
-      - ref('viz_types_table')
-      - ref('average_compile_time')
+
+  - name: error_base_auto_page
+    type: 'dashboard'
+    url: https://localhost//layers/error_base
+    owner: 
+        email: generated@topcoatdata.com
+    depends_on:
+      - ref('date_filter')
+      - ref('error_base')
+      - ref('include_internal_toggle')
+      - ref('instance_filter')
+      - ref('user_filter')
+
+  - name: error_count_auto_page
+    type: 'dashboard'
+    url: https://localhost//layers/error_count
+    owner: 
+        email: generated@topcoatdata.com
+    depends_on:
+      - ref('error_count')
+      - ref('include_internal_toggle')
+      - ref('instance_filter')
+      - ref('user_filter')
+
+  - name: error_filter_auto_page
+    type: 'dashboard'
+    url: https://localhost//layers/error_filter
+    owner: 
+        email: generated@topcoatdata.com
+    depends_on:
+      - ref('error_filter')
+
+  - name: errors_table_auto_page
+    type: 'dashboard'
+    url: https://localhost//layers/errors_table
+    owner: 
+        email: generated@topcoatdata.com
+    depends_on:
+      - ref('error_filter')
+      - ref('errors_table')
+      - ref('include_internal_toggle')
+
+  - name: expandable
+    type: 'dashboard'
+    url: https://localhost/expandable
+    owner: 
+        email: generated@topcoatdata.com
+    depends_on:
+      - ref('key_value_layer')
+
+  - name: features_base_auto_page
+    type: 'dashboard'
+    url: https://localhost//layers/features_base
+    owner: 
+        email: generated@topcoatdata.com
+    depends_on:
+      - ref('date_filter')
+      - ref('features_base')
+      - ref('include_internal_toggle')
+      - ref('instance_filter')
+      - ref('user_filter')
+
+  - name: files_base_auto_page
+    type: 'dashboard'
+    url: https://localhost//layers/files_base
+    owner: 
+        email: generated@topcoatdata.com
+    depends_on:
+      - ref('date_filter')
+      - ref('files_base')
+      - ref('include_internal_toggle')
+      - ref('instance_filter')
+      - ref('user_filter')
+
+  - name: files_created_auto_page
+    type: 'dashboard'
+    url: https://localhost//layers/files_created
+    owner: 
+        email: generated@topcoatdata.com
+    depends_on:
+      - ref('date_filter')
+      - ref('files_base')
       - ref('files_created')
+      - ref('include_internal_toggle')
+      - ref('instance_filter')
+      - ref('user_filter')
+
+  - name: files_created_line_auto_page
+    type: 'dashboard'
+    url: https://localhost//layers/files_created_line
+    owner: 
+        email: generated@topcoatdata.com
+    depends_on:
+      - ref('date_filter')
+      - ref('files_base')
+      - ref('files_created_line')
+      - ref('include_internal_toggle')
+      - ref('instance_filter')
+      - ref('user_filter')
+
+  - name: filtered_base_auto_page
+    type: 'dashboard'
+    url: https://localhost//layers/filtered_base
+    owner: 
+        email: generated@topcoatdata.com
+    depends_on:
+      - ref('date_filter')
+      - ref('filtered_base')
+      - ref('include_internal_toggle')
+      - ref('instance_filter')
+      - ref('user_filter')
+
+  - name: heatmap_compile_auto_page
+    type: 'dashboard'
+    url: https://localhost//layers/heatmap_compile
+    owner: 
+        email: generated@topcoatdata.com
+    depends_on:
+      - ref('heatmap_compile')
+      - ref('include_internal_toggle')
+      - ref('instance_filter')
+      - ref('user_filter')
+
+  - name: histogram_compile_auto_page
+    type: 'dashboard'
+    url: https://localhost//layers/histogram_compile
+    owner: 
+        email: generated@topcoatdata.com
+    depends_on:
+      - ref('histogram_compile')
+      - ref('include_internal_toggle')
+      - ref('instance_filter')
+      - ref('user_filter')
+
+  - name: include_internal_toggle_auto_page
+    type: 'dashboard'
+    url: https://localhost//layers/include_internal_toggle
+    owner: 
+        email: generated@topcoatdata.com
+    depends_on:
+      - ref('include_internal_toggle')
+
+  - name: instance_filter_auto_page
+    type: 'dashboard'
+    url: https://localhost//layers/instance_filter
+    owner: 
+        email: generated@topcoatdata.com
+    depends_on:
+      - ref('instance_filter')
+
+  - name: key_value_layer_auto_page
+    type: 'dashboard'
+    url: https://localhost//layers/key_value_layer
+    owner: 
+        email: generated@topcoatdata.com
+    depends_on:
+      - ref('key_value_layer')
+
+  - name: last_active_auto_page
+    type: 'dashboard'
+    url: https://localhost//layers/last_active
+    owner: 
+        email: generated@topcoatdata.com
+    depends_on:
+      - ref('date_filter')
+      - ref('include_internal_toggle')
+      - ref('instance_filter')
+      - ref('last_active')
+      - ref('user_base')
+      - ref('user_filter')
+
+  - name: layer_base_auto_page
+    type: 'dashboard'
+    url: https://localhost//layers/layer_base
+    owner: 
+        email: generated@topcoatdata.com
+    depends_on:
+      - ref('date_filter')
+      - ref('include_internal_toggle')
+      - ref('instance_filter')
+      - ref('layer_base')
+      - ref('user_filter')
+
+  - name: mma_compile_line_auto_page
+    type: 'dashboard'
+    url: https://localhost//layers/mma_compile_line
+    owner: 
+        email: generated@topcoatdata.com
+    depends_on:
+      - ref('include_internal_toggle')
+      - ref('instance_filter')
+      - ref('mma_compile_line')
+      - ref('user_filter')
+
+  - name: new_file_test_auto_page
+    type: 'dashboard'
+    url: https://localhost//layers/new_file_test
+    owner: 
+        email: generated@topcoatdata.com
+    depends_on:
+      - ref('new_file_test')
+
+  - name: overview
+    type: 'dashboard'
+    url: https://localhost/overview
+    owner: 
+        email: generated@topcoatdata.com
+    depends_on:
+      - ref('active_customers2')
+      - ref('active_instance')
+      - ref('customer_health')
+      - ref('date_filter')
+      - ref('include_internal_toggle')
+      - ref('saves_by_customer')
+      - ref('saves_by_day')
 
   - name: performance
     type: 'dashboard'
-    url: https://internal.topcoatdata.app/performance
+    url: https://localhost/performance
     owner: 
-        email: kennan@topcoatdata.com
+        email: generated@topcoatdata.com
     depends_on:
-      - ref('average_compile_time')
-      - ref('histogram')
-      - ref('percentiles')
-      - ref('percentile_over_time')
+      - ref('date_filter')
+      - ref('devices_used')
+      - ref('error_count')
       - ref('error_filter')
       - ref('errors_table')
+      - ref('heatmap_compile')
+      - ref('include_internal_toggle')
+      - ref('mma_compile_line')
+      - ref('test')
+
+  - name: saves_by_customer_auto_page
+    type: 'dashboard'
+    url: https://localhost//layers/saves_by_customer
+    owner: 
+        email: generated@topcoatdata.com
+    depends_on:
+      - ref('date_filter')
+      - ref('features_base')
+      - ref('include_internal_toggle')
+      - ref('instance_filter')
+      - ref('saves_by_customer')
+      - ref('user_filter')
+
+  - name: saves_by_day_auto_page
+    type: 'dashboard'
+    url: https://localhost//layers/saves_by_day
+    owner: 
+        email: generated@topcoatdata.com
+    depends_on:
+      - ref('date_filter')
+      - ref('features_base')
+      - ref('include_internal_toggle')
+      - ref('instance_filter')
+      - ref('saves_by_day')
+      - ref('user_filter')
+
+  - name: test2_auto_page
+    type: 'dashboard'
+    url: https://localhost//layers/test2
+    owner: 
+        email: generated@topcoatdata.com
+    depends_on:
+      - ref('test2')
+
+  - name: test_auto_page
+    type: 'dashboard'
+    url: https://localhost//layers/test
+    owner: 
+        email: generated@topcoatdata.com
+    depends_on:
+      - ref('test')
+
+  - name: testt
+    type: 'dashboard'
+    url: https://localhost/testt
+    owner: 
+        email: generated@topcoatdata.com
+    depends_on:
+      - ref('customer_health')
+      - ref('date_filter')
+      - ref('include_internal_toggle')
+
+  - name: user_base_auto_page
+    type: 'dashboard'
+    url: https://localhost//layers/user_base
+    owner: 
+        email: generated@topcoatdata.com
+    depends_on:
+      - ref('date_filter')
+      - ref('include_internal_toggle')
+      - ref('instance_filter')
+      - ref('user_base')
+      - ref('user_filter')
+
+  - name: user_filter_auto_page
+    type: 'dashboard'
+    url: https://localhost//layers/user_filter
+    owner: 
+        email: generated@topcoatdata.com
+    depends_on:
+      - ref('instance_filter')
+      - ref('user_filter')
+
+  - name: viz_types_table_auto_page
+    type: 'dashboard'
+    url: https://localhost//layers/viz_types_table
+    owner: 
+        email: generated@topcoatdata.com
+    depends_on:
+      - ref('date_filter')
+      - ref('include_internal_toggle')
+      - ref('instance_filter')
+      - ref('layer_base')
+      - ref('user_filter')
+      - ref('viz_types_table')
 

@@ -5,9 +5,9 @@ project:
         #path: <add logo filename here>
         #width: 150
 
-modules:
-    - git: https://github.com/topcoat-data/topcoat-public.git
-      revision: main
+# modules:
+#     - git: https://github.com/topcoat-data/topcoat-public.git
+#       revision: main
 
 #connections:
     # Configure your connection details here then add secret to Admin/Secrets
@@ -37,7 +37,7 @@ modules:
 
 layers:
   personas: [ 'default' ]
-  connection: bigquery
+  connection: conn
 
 dbt:
   connection: bigquery
@@ -62,6 +62,11 @@ personas:
         - url: testt
           src: testt.html
           title: Test
+          icon_class: fa-server
+
+        - url: expandable
+          src: expandable.vue
+          title: Expandable
           icon_class: fa-server
 
 develop:
